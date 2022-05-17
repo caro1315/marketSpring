@@ -17,8 +17,10 @@ https://mvnrepository.com/
 */
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

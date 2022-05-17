@@ -1,5 +1,8 @@
 package com.dayana.market.persistence.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 
@@ -29,6 +32,9 @@ public class Producto {
     private Integer cantidadStock;
 
     private Integer estado;
+
+    @Getter @Setter @ManyToOne @JoinColumn(name = "id_categoria", insertable = false, updatable = false )
+    private Categoria categoria;
 
 
     public Integer getIdProducto() {

@@ -1,10 +1,11 @@
 package com.dayana.market.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -29,7 +30,11 @@ public class Compra {
 
     private String estado;
 
+    @Getter @Setter @ManyToOne @JoinColumn(name = "id_cliente", insertable = false, updatable = false )
+    private Cliente cliente;
 
+    @Getter @Setter @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> productos;
 
 
     public Integer getIdCompra() {

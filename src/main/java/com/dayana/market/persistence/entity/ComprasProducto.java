@@ -1,20 +1,13 @@
 package com.dayana.market.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "compras_productos")
 public class ComprasProducto {
 
-    @Id
-    @Column(name = "id_compra")
-    private Integer id_compra;
-
-    @Column(name = "id_producto")
-    private Integer id_producto;
+    @EmbeddedId
+    private ComprasProductoPK id;
 
     private Integer cantidad;
 
@@ -22,6 +15,43 @@ public class ComprasProducto {
 
     private Integer estado;
 
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Compra compra;
 
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Producto producto;
 
+    public ComprasProductoPK getId() {
+        return id;
+    }
+
+    public void setId(ComprasProductoPK id) {
+        this.id = id;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
+    public Integer getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Integer estado) {
+        this.estado = estado;
+    }
 }
