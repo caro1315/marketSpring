@@ -1,18 +1,14 @@
 package com.dayana.market.persistence.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @Table(name = "productos")
 public class Producto {
 
     @Id
-    /* @GeneratedValue(strategy = GenerationType.IDENTITY)  --> Este caso se usaria si no le
-    tuvieramos el valor incremental en la base de datos.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // --> Este caso se usaria si no le
+   /* tuvieramos el valor incremental en la base de datos.
     */
     @Column(name = "id_producto")
     private Integer idProducto;
@@ -33,7 +29,7 @@ public class Producto {
 
     private Integer estado;
 
-    @Getter @Setter @ManyToOne @JoinColumn(name = "id_categoria", insertable = false, updatable = false )
+    @ManyToOne @JoinColumn(name = "id_categoria", insertable = false, updatable = false )
     private Categoria categoria;
 
 
@@ -93,7 +89,11 @@ public class Producto {
         this.estado = estado;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
-
-
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }

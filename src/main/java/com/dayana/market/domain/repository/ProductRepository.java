@@ -1,12 +1,11 @@
 package com.dayana.market.domain.repository;
 
 import com.dayana.market.domain.Product;
-import com.dayana.market.persistence.entity.Producto;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductRepository {
+public interface ProductRepository  {
 
     List<Product> getAll();
     Optional<List<Product>> getByCategory(int categoryId);

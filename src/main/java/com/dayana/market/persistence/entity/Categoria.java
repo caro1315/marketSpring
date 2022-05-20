@@ -1,8 +1,5 @@
 package com.dayana.market.persistence.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,17 +7,46 @@ import java.util.List;
 @Table(name = "categorias")
 public class Categoria {
 
-    @Id @Getter @Setter @Column(name = "id_categoria")
+    @Id  @Column(name = "id_categoria")
     private Integer idCategoria;
 
-    @Getter @Setter
     private String descripcion;
 
-    @Getter @Setter
     private Integer estado;
 
-    @Getter @Setter @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "categoria")
     private List<Producto> productos;
 
 
+    public Integer getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Integer getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Integer estado) {
+        this.estado = estado;
+    }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
 }
