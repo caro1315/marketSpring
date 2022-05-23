@@ -14,7 +14,6 @@ public class ComprasProductoPK implements Serializable {
     @Column(name = "id_compra")
     private Integer id_compra;
 
-    @Setter @Getter
     @Column(name = "id_producto")
     private Integer id_producto;
 
@@ -26,5 +25,11 @@ public class ComprasProductoPK implements Serializable {
         this.id_compra = id_compra;
     }
 
+    public Integer getId_producto() {
+        return id_producto;
+    }
 
+    public void setId_producto(Integer id_producto) {
+        this.id_producto = id_producto;
+    }
 }
